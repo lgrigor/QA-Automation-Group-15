@@ -1,0 +1,27 @@
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+
+FIRST_SCREENSHOT = r'C:\Users\Levon Grigoryan\Documents\QA15\selen2\Screenshots\home_page.png'
+SECOND_SCREENSHOT = r'C:\Users\Levon Grigoryan\Documents\QA15\selen2\Screenshots\random_video.png'
+
+chrome_options = Options()
+#chrome_options.add_argument('--headless')
+chrome_options.add_argument('--log-level=3')
+chrome_options.add_argument("--start-maximized")
+
+browser = webdriver.Chrome(service=ChromeService(), options=chrome_options)
+browser.get('https://www.youtube.com/')
+browser.set_page_load_timeout(10)
+
+browser.save_screenshot(FIRST_SCREENSHOT)
+browser.find_element(By.XPATH, '//yt-img-shadow/img[@width="9999"]').click()
+
+wait = WebDriverWait(browser, 5)
+wait.until(EC.presence_of_element_located((By.XPATH, "//span[@class='ytp-time-current' and text()='0:01']")))
+browser.save_screenshot(SECOND_SCREENSHOT)
+
+browser.quit()

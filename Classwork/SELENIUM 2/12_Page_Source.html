@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>    
+    <body>
+ 
+        <p>Click the button to make a BUTTON element with text.</p>
+        <p>The button element gets created after 3 seconds</p>
+ 
+        <button onclick="setTimeout(myFunction, 3000);" id="try_it">Try it</button>
+ 
+        <script>
+            function myFunction() {
+                var btn = document.createElement("a");
+                btn.innerHTML = "CLICK ME";
+                btn.id = "waitCreate";
+                btn.setAttribute('href', 'https://www.youtube.com/');
+                btn.setAttribute('target', '_blank');
+                document.body.appendChild(btn);
+                //setTimeout(function () { alert("I am created after 3 seconds of button waitCreate!"); }, 3000);
+            }
+        </script>
+    </body>
+</html>
