@@ -1,5 +1,5 @@
-# QA-15
-## Upload homeworks after the deadline
+# QA-Automation-Group-15
+BDG 2022 QA Automation: Homework tasks and more
 
 Please follow the standards while uploading file.<br>
  * Upload files to the appropriate folder
